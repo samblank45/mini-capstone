@@ -1,8 +1,8 @@
 class Api::ProductsController < ApplicationController
 
-def store_page
-  
-  render 'store.json.jb'
-end
+  def store_page
+    @products = Product.all
+    render 'store.json.jb'
+  end
 
 end
