@@ -2,6 +2,23 @@ class Api::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:search]
+      @products = Product.where("name iLIKE ?", "%#{params[:search]}%")
+    end
+
+    if params[:discount]
+      @product = @product.where('price < ?', 10)
+    end
+
+    if params[:sort] == "price"
+      if params[:sort_order] == "asc"
+        @products = @products.order(:price)
+      elsif params[:sort_order] == "desc"
+        @Products - @products.order(price: :desc)
+      else 
+        @products - @products.order(:id)
+      end
+    end
     render 'index.json.jb'
   end
 
@@ -14,7 +31,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
       description: params[:description],
       stock: params[:stock]
     )
@@ -29,7 +45,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     @product.stock = params[:stock] || @product.stock
     if @product.save
@@ -46,3 +61,5 @@ class Api::ProductsController < ApplicationController
   end
   
 end
+
+
