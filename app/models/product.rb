@@ -21,4 +21,14 @@ class Product < ApplicationRecord
   belongs_to :supplier
   
   has_many :images
+
+  has_many :orders
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories
+  
+
+  def category_names
+    categories.map { |category| category.name}
+  end
 end

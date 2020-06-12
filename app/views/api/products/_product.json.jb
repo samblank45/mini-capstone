@@ -5,10 +5,11 @@
   description: product.description,
   supplier_name: product.supplier.name,
   stock: product.stock,
-  image_url: product.images,
-  formatted: {
-    discounted: product.is_discounted?,
-    tax: product.tax,
-    total_price: product.total
-  }
+  category: product.category_names,
+  images: product.images,
+  # formatted: {
+  #   discounted: product.is_discounted?,
+  #   tax: product.tax,
+  #   total_price: product.total
+  # }
 }

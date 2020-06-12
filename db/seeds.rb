@@ -1,5 +1,5 @@
 
-Supplier.create([
+Supplier.create!([
   {
     name: "Amazon-mini",
     email: "amazonmini@gmail.com",
@@ -22,7 +22,7 @@ Supplier.create([
   }
 ])
 
-Product.create([
+Product.create!([
   {
     name: "football",
     price: 8.00,
@@ -64,7 +64,7 @@ Product.create([
 
 
 
-Image.create([
+Image.create!([
   {
     name: "football",
     url: "https://www.profootballhof.com/assets/1/6/NFLSchedule1050Web.jpg",

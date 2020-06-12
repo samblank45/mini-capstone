@@ -1,4 +1,6 @@
 class Api::ProductsController < ApplicationController
+  
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -9,6 +11,12 @@ class Api::ProductsController < ApplicationController
     if params[:discount]
       @product = @product.where('price < ?', 10)
     end
+    
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
+
 
     if params[:sort] == "price"
       if params[:sort_order] == "asc"
