@@ -27,6 +27,8 @@ class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
   
+  has_many :carted_products
+ 
 
   def category_names
     categories.map { |category| category.name}
