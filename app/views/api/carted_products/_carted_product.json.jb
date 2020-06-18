@@ -6,5 +6,4 @@
   quantity: carted_product.quantity,
   order_id: carted_product.product_id,
   product: carted_product.product
-
 }
