@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.navbar-brand {
+  font-family: "Anton";
+}
+
+body {
+  background-image: url(beige-tiles.png);
+}
+
+.jumbotron {
+  font-family: "Anton", "Arial";
+  background-image: url("_s_a12CbADc12CdADe0f0g64hF7F9C9F7F9C9855CA1iF3j0k64l1F4m1F4.jpg");
+}
+
+.card-body {
+  font-family: "Anton";
+}
